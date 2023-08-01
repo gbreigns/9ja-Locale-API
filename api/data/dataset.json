@@ -1,0 +1,251 @@
+[
+    {
+        "lga_name": "Aba North",
+        "state":"Abia",
+        "landmass": "46 km2 (18 sq mi)",
+        "borders": ["Aba South", "Osisioma Ngwa", "Umuahia North", "Umuahia South"]
+    },
+
+    {
+        "lga_name": "Aba South",
+        "state":"Abia",
+        "landmass": "65 km2 (25 sq mi)",
+        "borders": ["Aba North", "Osisioma Ngwa", "Umuahia North", "Umuahia South"]
+    },
+
+    {
+        "lga_name": "Arochukwu",
+        "state":"Abia",
+        "landmass": "193 km2 (75 sq mi)",
+        "borders": ["Bende", "Ikwuano", "Isiala Ngwa North", "Ohafia", "Umuahia North"]
+    },
+
+    {
+        "lga_name": "Bende",
+        "state":"Abia",
+        "landmass": "137 km2 (53 sq mi)",
+        "borders": ["Arochukwu", "Ikwuano", "Isiala Ngwa North", "Ohafia", "Umuahia North"]
+    },
+
+    {
+        "lga_name": "Ikwuano",
+        "state":"Abia",
+        "landmass": "139 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Isiala Ngwa North", "Ohafia", "Umuahia North"]
+    },
+
+    {
+        "lga_name": "Isiala Ngwa North",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Ohafia", "Umuahia North"]
+    },
+
+    {
+        "lga_name": "Isiala Ngwa South",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Umuahia North"]
+    },
+
+    {
+        "lga_name": "Isuikwuato",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Ohafia"]
+    },
+
+    {
+        "lga_name": "Obi Ngwa",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Ohafia"]
+    },
+
+    {
+        "lga_name": "Ohafia",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isuikwuato"]
+    },
+
+    {
+        "lga_name": "Osisioma Ngwa",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isuikwuato"]
+    },
+
+    {
+        "lga_name": "Ugwunagbo",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isuikwuato"]
+    },
+
+    {
+        "lga_name": "Ukwa East",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isuikwuato"]
+    },
+
+    {
+        "lga_name": "Ukwa West",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isuikwuato"]
+    },
+
+    {
+        "lga_name": "Umuahia North",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isuikwuato"]
+    },
+
+    {
+        "lga_name": "Umuahia South",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isuikwuato"]
+    },
+
+    {
+        "lga_name": "Umu Nneochi",
+        "state":"Abia",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": ["Arochukwu", "Bende", "Ikwuano", "Isiala Ngwa North", "Isuikwuato"]
+    },
+
+    {
+        "lga_name": "Demsa",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    },
+
+    {
+        "lga_name": "Fufore",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    },
+
+    {
+        "lga_name": "Ganye",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    },
+
+    {
+        "lga_name": "Girei",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    },
+
+    {
+        "lga_name": "Gombi",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    },
+
+    {
+        "lga_name": "Guyuk",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    },
+
+    {
+        "lga_name": "Hong",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    },
+
+    {
+        "lga_name": "Jada",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    },
+
+    {
+        "lga_name": "Lamurde",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    },
+
+    {
+        "lga_name": "Madagali",
+        "state":"Adamawa",
+        "landmass": "140 km2 (54 sq mi)",
+        "borders": [
+            "Ganye",
+            "Guyuk",
+            "Lamurde",
+            "Numan",
+            "Song"
+        ]
+    }
+
+]

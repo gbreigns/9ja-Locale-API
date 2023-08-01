@@ -1,0 +1,655 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "This is a documentation for Locale API built with Flask and Flask-RestX",
+        "version": "1.0.0",
+        "title": "Locale API",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "contact": {
+            "name": "Barakat Adisa",
+            "url": "https://github.com/Adekemi02",
+            "email": "adisabarakatadekemi@gmail.com"
+        }
+    },
+    "tags": [
+        {
+        "name": "Authentication API",
+        "description": "Authentication Routes"
+        },
+        {
+        "name": "States API",
+        "description": "States Routes"
+        },
+        {
+        "name": "LGA API",
+        "description": "LGA Routes"
+        },
+        {
+        "name": "Regions API",
+        "description": "Regions Routes"
+        },
+        {
+        "name": "Search API",
+        "description": "Search Routes"
+        }
+    ],
+    "servers": [
+        {
+        "url": "http://localhost:5000/api/v1",
+        "description": "Local server"
+        },
+        {
+        "url": "https://locale-api.herokuapp.com/api/v1",
+        "description": "Production server"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "Bearer Auth": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "Authorization",
+                "description": "Add a JWT token to the header with **Bearer &lt;JWT token&gt;** to authorize"
+            }
+        },
+        "security": [
+            {
+                "Bearer Auth": []
+            }
+        ],
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string",
+                        "description": "User name"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "User email"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "User password"
+                    },
+                    "confirm_password": {
+                        "type": "string",
+                        "description": "User password confirmation"
+                    }
+                },
+                "required": [
+                    "username",
+                    "email",
+                    "password",
+                    "confirm_password"
+                ]
+            },
+            "UserLogin": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "User email"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "User password"
+                    }
+                },
+                "required": [
+                    "email",
+                    "password"
+                ]
+            },
+            "API_KEY": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "description": "API_KEY"
+                    }
+                }
+            },
+            "State": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "objectID",
+                        "description": "State id"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "State name"
+                    },
+                    "lgas": {
+                        "type": "array",
+                        "description": "State's local government areas",
+                        "items": {
+                            "$ref": "#/components/schemas/LGA"
+                        }
+                    },
+                    "regions": {
+                        "type": "array",
+                        "description": "State's regions",
+                        "items": {
+                            "$ref": "#/components/schemas/Region"
+                        }
+                    },
+                    "governor": {
+                        "type": "string",
+                        "description": "State's governor"
+                    },
+                    "capital": {
+                        "type": "string",
+                        "description": "State's capital"
+                    },
+                    "slogan": {
+                        "type": "string",
+                        "description": "State's slogan"
+                    },
+                    "population": {
+                        "type": "integer",
+                        "description": "State's population"
+                    },
+                    "landmass": {
+                        "type": "integer",
+                        "description": "State's landmass"
+                    },
+                    "universities": {
+                        "type": "string",
+                        "description": "State's universities"
+                    },
+                    "past_governors": {
+                        "type": "string",
+                        "description": "State's past governors"
+                    },
+                    "senatorial_districts": {
+                        "type": "string",
+                        "description": "State's senatorial districts"
+                    }
+                }
+            },
+            "LGA": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "objectID",
+                        "description": "LGA id"
+                    },
+                    "lga": {
+                        "type": "string",
+                        "description": "LGA name"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "LGA's state"
+                    }
+                }
+            },
+            "Region": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "objectID",
+                        "description": "Region id"
+                    },
+                    "region": {
+                        "type": "string",
+                        "description": "Region name"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Region's state"
+                    }
+                }
+            },
+            "Search": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "objectID",
+                        "description": "Search id"
+                    },
+                    "search": {
+                        "type": "string",
+                        "description": "Search query"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/auth/register": {
+            "post": {
+                "tags": [
+                    "Authentication API"
+                ],
+                "summary": "Register a new user",
+                "description": "Register a new user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "User created successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "409": {
+                        "description": "User already exists"
+                    }
+                }
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Authentication API"
+                ],
+                "summary": "Login a user",
+                "description": "Login a user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserLogin"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "User logged in successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Invalid credentials"
+                    }
+                }
+            }
+        },
+        "/auth/refresh_token": {
+            "post": {
+                "tags": [
+                    "Authentication API"
+                ],
+                "summary": "Refresh user token",
+                "description": "Refresh user token",
+                "headers": {
+                    "Authorization": {
+                        "description": "Refresh Token",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "refresh_token",
+                        "in": "path",
+                        "description": "Refresh Token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Token refreshed successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "401": {
+                        "description": "Invalid credentials"
+                    }
+                }
+            }
+        },
+        "/auth/logout": {
+            "post": {
+                "tags": [
+                    "Authentication API"
+                ],
+                "summary": "Logout a user",
+                "description": "Logout a user",
+                "headers": {
+                    "Authorization": {
+                        "description": "Bearer Token",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User logged out successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/states": {
+            "get": {
+                "tags": [
+                    "States API"
+                ],
+                "summary": "Get all states",
+                "description": "Get all states",
+                "parameters": [
+                    {
+                        "name": "apiKey",
+                        "in": "header",
+                        "description": "API Key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "States retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/states/{state_id}": {
+            "get": {
+                "tags": [
+                    "States API"
+                ],
+                "summary": "Get an individual state",
+                "description": "Get an individual state",
+                "parameters": [
+                    {
+                        "name": "state_id",
+                        "in": "path",
+                        "description": "State ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "headers": {
+                    "Authorization": {
+                        "description": "API Key",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "State retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/lgas": {
+            "get": {
+                "tags": [
+                    "LGA API"
+                ],
+                "summary": "Get all LGAs",
+                "description": "Get all LGAs",
+                "headers": {
+                    "Authorization": {
+                        "description": "API Key",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "LGAs retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/lgas/{lga_id}": {
+            "get": {
+                "tags": [
+                    "LGA API"
+                ],
+                "summary": "Get an individual LGA",
+                "description": "Get an individual LGA",
+                "parameters": [
+                    {
+                        "name": "lga_id",
+                        "in": "path",
+                        "description": "LGA ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "headers": {
+                    "Authorization": {
+                        "description": "API Key",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "LGA retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/lgas/{state_id}":{
+            "get": {
+                "tags": [
+                    "LGA API"
+                ],
+                "summary": "Get all LGAs in a state",
+                "description": "Get all LGAs in a state",
+                "parameters": [
+                    {
+                        "name": "state_id",
+                        "in": "path",
+                        "description": "State ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "headers": {
+                    "Authorization": {
+                        "description": "API Key",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "LGAs retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/lgas/{lga_id}/wards": {
+            "get": {
+                "tags": [
+                    "Wards API"
+                ],
+                "summary": "Get all wards in an LGA",
+                "description": "Get all wards in an LGA",
+                "parameters": [
+                    {
+                        "name": "lga_id",
+                        "in": "path",
+                        "description": "LGA ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "headers": {
+                    "Authorization": {
+                        "description": "API Key",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Wards retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/regions": {
+            "get": {
+                "tags": [
+                    "Regions API"
+                ],
+                "summary": "Get all regions",
+                "description": "Get all regions",
+                "headers": {
+                    "Authorization": {
+                        "description": "API Key",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Regions retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/regions/{region_id}": {
+            "get": {
+                "tags": [
+                    "Regions API"
+                ],
+                "summary": "Get an individual region",
+                "description": "Get an individual region",
+                "parameters": [
+                    {
+                        "name": "region_id",
+                        "in": "path",
+                        "description": "Region ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "headers": {
+                    "Authorization": {
+                        "description": "API Key",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Region retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/search/{query}": {
+            "get": {
+                "tags": [
+                    "Search API"
+                ],
+                "summary": "Search for a location",
+                "description": "Search for a location",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "path",
+                        "description": "Location to search for",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "headers": {
+                    "Authorization": {
+                        "description": "API Key",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": true
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Search results retrieved successfully"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        }
+    }
+}
